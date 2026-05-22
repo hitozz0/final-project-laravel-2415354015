@@ -7,10 +7,10 @@ use App\Http\Controllers\Api\CustomersController;
 
 Route::apiResource("services", ServiceController::class);
 Route::patch("services/{service}/activate", [ServiceController::class,"activate",]);
-Route::patch("services/{service}/deactivate", [ServiceController::class,"deactive",]);
+Route::patch("services/{service}/deactivate", [ServiceController::class,"deactivate",]);
 
 Route::apiResource("customers", CustomersController::class);
-Route::patch("services/{service}/activate", [CustomersController::class,"activate",]);
-Route::patch("services/{service}/deactivate", [CustomersController::class,"deactive",]);
+Route::patch("customers/{id}/activate", [CustomersController::class,"activate",]);
+Route::patch("customers/{id}/deactivate", [CustomersController::class,"deactivate",]);
 
 
