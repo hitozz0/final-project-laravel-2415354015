@@ -19,7 +19,7 @@ class Customers extends Model
     * @return HasMany<Subscription, $this>
     */
 
-    public function subscription() : HasMany {
+    public function subscriptions() : HasMany {
         return $this->hasMany(Subscription::class);
     }
 }

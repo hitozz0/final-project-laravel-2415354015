@@ -2,8 +2,9 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import { bunny } from 'laravel-vite-plugin/fonts';
 import tailwindcss from '@tailwindcss/vite';
+import withMT from "@material-tailwind/html/utils/withMT";
 
-export default defineConfig({
+export default withMT({
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],

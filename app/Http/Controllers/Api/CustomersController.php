@@ -35,9 +35,9 @@ class CustomersController extends Controller
 
     public function store(Request $request) : JsonResponse {
         $data = $request->validate([
-            "customer_id" => ["required", "string"],
+            "customer_id" => ["required", "string", "unique:customers,customer_id"],
             "name" => ["required", "string"],
-            "email" => ["required", "string"],
+            "email" => ["required", "email", "unique:customers,email"],
             "phone" => ["nullable", "string"],
             "address" => ["nullable", "string"],
             "status" => ["nullable", "boolean"],
@@ -100,8 +100,8 @@ class CustomersController extends Controller
         ]);
     }
 
-    public function destroy(int $id) : JsonResponse {
-        $cust = Customers::query()->find($id);
+    public function destroy(int $cust) : JsonResponse {
+        $cust = Customers::query()->find($cust);
 
         if (!$cust) {
             return response()->json([
